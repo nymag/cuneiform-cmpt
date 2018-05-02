@@ -67,6 +67,12 @@ describe(dirname, function () {
     describe('render', function () {
       const fn = lib[this.title];
 
+      it ('returns input data', function () {
+        const mockData = {};
+
+        expect(fn(mockRef, mockData)).to.equal(mockData);
+      });
+
       it ('renders simple-list content descriptors as an array of {text: string} objects in edit mode', function () {
         const mockData = {
             includeTags: ['a', 'b'],

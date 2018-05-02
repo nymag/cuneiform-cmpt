@@ -4,7 +4,8 @@
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=text --reporter=text-summary mocha index.test.js **/*.test.js"
+    "test": "nyc --reporter=text --reporter=text-summary mocha index.test.js **/*.test.js",
+    "report": "echo 'Generating HTML code coverage report' && nyc --reporter=lcov --reporter=text-summary mocha index.test.js **/*.test.js"
   },
   "author": "",
   "license": "ISC",
