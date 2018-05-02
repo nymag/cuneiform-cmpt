@@ -7,7 +7,8 @@
 
 const _includes = require('lodash/includes'),
   urlParse = require('url-parse'), // smaller than native url lib
-  buildQuery = require('./lib/build-query');
+  queryUtil = require('./lib/query-util'),
+  { ARRAY_CONTENT_DESCRIPTORS } = require('./lib/constants');
 
 /**
  * In edit mode, convert array content descriptors from simple lists
@@ -41,7 +42,7 @@ function save(ref, data, locals) {
     url.set('protocol', 'http:');
     data.overrideUrl = url.toString();
   }
-  data.cuneiformQuery = buildQuery(data, locals);
+  data.cuneiformQuery = queryUtil.buildQuery(data, locals);
   data.cuneiformScopes = data.dedupeContexts;
   return data;
 }
