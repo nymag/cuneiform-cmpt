@@ -1,0 +1,16 @@
+name: Index Code to Docs MCP Server
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  index:
+    name: Index Code to Docs MCP Server
+    runs-on: [arc-arm]
+    steps:
+      - uses: voxmedia/docs-mcp-server/.github/actions/index-code@main
+        with:
+          server-url: https://docs-mcp.voxops.net
+          auth-user: ${{ secrets.DOCS_MCP_AUTH_USER }}
+          auth-pass: ${{ secrets.DOCS_MCP_AUTH_PASS }}
